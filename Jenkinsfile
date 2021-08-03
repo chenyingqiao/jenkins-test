@@ -42,6 +42,14 @@ pipeline{
             }
         }
         stage('并行节点') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
             when {
                 //判断流水线是否执行这个阶段
                 branch 'main'

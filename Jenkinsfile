@@ -18,6 +18,9 @@ pipeline {
             }
         }
         stage('B') {
+            steps {
+                echo '这个是一个带input的'
+            }
             input {
                 message 'Should we continue?'
                 ok 'Yes, we should.'
@@ -25,9 +28,6 @@ pipeline {
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
                 }
-            }
-            steps {
-                echo '这个是一个带input的'
             }
             post {
                 always {

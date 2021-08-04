@@ -50,10 +50,6 @@ pipeline {
             }
         }
         stage('并行节点') {
-            when {
-                //判断流水线是否执行这个阶段
-                branch 'main'
-            }
             failFast true//其中一个stage失败所有的终止
             parallel {
                 stage('Branch A') {

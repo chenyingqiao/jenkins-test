@@ -19,7 +19,7 @@ pipeline {
         }
         stage('B') {
             steps {
-                echo '这个是一个带input的'
+                echo '这个是一个带input的asdfasdf'
             }
             input {
                 message 'Should we continue?'

@@ -41,6 +41,12 @@ pipeline{
                 }
             }
         }
+        stage('http请求'){
+            steps{
+                def response = httpRequest "http://httpbin.org/response-headers?param1=${param1}"
+                println(response)
+            }
+        }
         stage('并行节点') {
             when {
                 //判断流水线是否执行这个阶段
